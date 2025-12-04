@@ -6,7 +6,7 @@
   home.homeDirectory = "/home/ikanasync";
   home.enableNixpkgsReleaseCheck = false;
   home.stateVersion = "25.05"; # Please read the comment before changing.
-
+  news.display = "silent";
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -24,19 +24,14 @@
     #fish
     nixd # lsp nix
     nixfmt # nix formatter
-
+    lolcat
+    gh
+    rofi
   ];
 
-  home.file = {
-    # ".config/nvim".source = ./config/nvim;
-    # ".config/fish".source = ./config/fish;
-    # ".tmux.conf".source = ./config/tmux.conf;
-  };
+  home.file = { };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    # XDG_DATA_DIRS = "${config.home.homeDirectory}/.nix-profile/share";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   home.sessionPath = [ ];
 

@@ -9,6 +9,7 @@
         line-number = "relative";
         mouse = false;
         auto-info = false;
+        auto-format = true;
       };
 
       editor.lsp = {
@@ -38,6 +39,8 @@
         "j"."k" = "normal_mode";
       };
       keys.normal = {
+        ";" = "command_mode";
+
         esc = [
           "collapse_selection"
           "keep_primary_selection"
@@ -55,9 +58,9 @@
           formatter.command = "nixfmt";
         }
         {
-          name="rust";
-          auto-format=true;
-          
+          name = "rust";
+          auto-format = true;
+
         }
 
       ];
