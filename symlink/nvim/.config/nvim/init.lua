@@ -29,6 +29,7 @@ require("lazy").setup({
 	defaults = {
 		lazy = true,
 	},
+
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "habamax" } },
@@ -38,5 +39,5 @@ require("lazy").setup({
 
 require("options")
 require("mappings")
-require("config.lazy")
+require("config")
 require("autocmd")

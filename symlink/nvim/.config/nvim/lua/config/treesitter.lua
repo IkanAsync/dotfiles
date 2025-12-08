@@ -1,17 +1,20 @@
-local treesitter = require("nvim-treesitter.configs")
+local treesitter = require "nvim-treesitter.configs"
 
-treesitter.setup({
-    ensure_installed = { 
+treesitter.setup {
+    ensure_installed = {
         "lua",
         "luadoc",
         "printf",
         "vim",
         "vimdoc",
-        "nix",
         "go",
-        "rust",
         "gowork",
-        "gomod"
+        "gosum",
+        "rust",
+        "html",
+        "css",
+        "nix",
+        "javascript",
     },
 
     highlight = {
@@ -20,4 +23,4 @@ treesitter.setup({
     },
 
     indent = { enable = true },
-})
+}

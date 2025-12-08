@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = builtins.map (file: ./modules/${file}) [ "helix.nix" ];
+  # imports = builtins.map (file: ./modules/${file}) [ "helix.nix" ];
   home.username = "ikanasync";
   home.homeDirectory = "/home/ikanasync";
   home.enableNixpkgsReleaseCheck = false;
@@ -9,11 +9,12 @@
   news.display = "silent";
   # The home.packages option allows you to install Nix packages into your
   # environment.
+
   home.packages = with pkgs; [
     neovim
     vlc
     eza
-    helix
+    # helix
     zoxide
     go
     nodejs_24
@@ -26,12 +27,14 @@
     nixfmt # nix formatter
     lolcat
     gh
-    rofi
+
   ];
 
   home.file = { };
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   home.sessionPath = [ ];
 

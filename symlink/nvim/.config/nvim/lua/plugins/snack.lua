@@ -5,7 +5,42 @@ return {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = false },
-		dashboard = { enabled = true },
+		dashboard = {
+			enabled = true,
+			sections = {
+				{
+					section = "terminal",
+					align = "center",
+					height = 26,
+					width = 72,
+					padding = 1,
+					cmd = "lolcat --seed=40 ~/.config/nvim/static/frieren.cat",
+				},
+				{
+					align = "center",
+					padding = 1,
+					text = {
+						{ "  Update ", hl = "Label" },
+						{ "  Sessions ", hl = "@property" },
+						{ "  Last Session ", hl = "Number" },
+						{ "  Files ", hl = "DiagnosticInfo" },
+						{ "  Recent ", hl = "@string" },
+					},
+				},
+				{ text = { "==============================================================" } },
+				{
+					section = "keys",
+					indent = 1,
+					align = "center",
+					gap = 0.5,
+					padding = 1,
+				},
+
+				{ text = { "===============================================================" } },
+				height = 60,
+				{ section = "startup" },
+			},
+		},
 		explorer = { enabled = false },
 		indent = { enabled = false },
 		input = { enabled = false },

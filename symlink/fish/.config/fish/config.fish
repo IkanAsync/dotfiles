@@ -9,11 +9,11 @@ if status --is-interactive
     end
 end
 
-alias l='eza -lh --icons=auto'                                         # long list
-alias ls='eza -1 --icons=auto'                                         # short list
+alias l='eza -lh --icons=auto' # long list
+alias ls='eza -1 --icons=auto' # short list
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
-alias ld='eza -lhD --icons=auto'                                       # long list dirs
-alias lt='eza --icons=auto --tree'                                     # list folder as tree
+alias ld='eza -lhD --icons=auto' # long list dirs
+alias lt='eza --icons=auto --tree' # list folder as tree
 alias fastfetch='fastfetch --logo-type kitty'
 
 # Directory navigation shortcuts
@@ -31,6 +31,7 @@ alias ga="git add"
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.nix-profile/bin
 fish_add_path /home/ikanasync/.nix-profile/etc/profile.d/hm-session-vars.sh
+set -gx PATH ~/.local/bin $PATH
 set -x GOPATH $HOME/go
 
 set -x PATH $GOPATH/bin $PATH
