@@ -74,6 +74,7 @@ return {
             { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Buffer" },
             { "<leader>fo", "<cmd>Telescope oldfiles<CR>", desc = "telescope find oldfiles" },
             { "<leader>fw", "<cmd>Telescope live_grep<CR>", desc = "telescope live grep" },
+            { "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "telescope live grep" },
             { "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" } },
             { "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git commits" } },
         },
@@ -174,42 +175,6 @@ return {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPost", "BufNewFile" },
     },
-    {
-        "saghen/blink.cmp",
-        dependencies = { "rafamadriz/friendly-snippets" },
-
-        version = "1.*",
-        ---@module 'blink.cmp'
-        ---@type blink.cmp.Config
-        opts = {
-            keymap = { preset = "enter" },
-            snippets = { preset = "default" },
-
-            appearance = {
-                nerd_font_variant = "mono",
-            },
-
-            completion = {
-                documentation = { auto_show = false },
-                ghost_text = {
-                    enabled = true,
-                },
-            },
-
-            sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
-                providers = {
-                    lsp = {
-                        name = "LSP",
-                        min_keyword_length = 2,
-                    },
-                },
-            },
-
-            fuzzy = { implementation = "prefer_rust_with_warning" },
-        },
-        opts_extend = { "sources.default" },
-    },
 
     {
         "stevearc/aerial.nvim",
@@ -236,28 +201,16 @@ return {
     },
 
     {
-        "akinsho/toggleterm.nvim",
-        version = "*",
-        event = "VeryLazy",
-        opts = {
-            size = 40,
-            open_mapping = [[<c-f>]],
-            hide_numbers = true,
-            shade_filetypes = {},
-            shade_terminals = true,
-            shading_factor = 2,
-            start_in_insert = true,
-            insert_mappings = true,
-            persist_size = true,
-            direction = "float", -- bisa 'horizontal', 'vertical', 'tab', 'float'
-            close_on_exit = true,
-            shell = vim.o.shell,
-            float_opts = {
-                border = "rounded",
-                width = 140,
-                height = 30,
-                winblend = 3,
-            },
+        "mbbill/undotree",
+        event = { "BufReadPost", "BufNewFile" },
+        keys = {
+            { "<leader>ut", "<cmd>UndotreeToggle<CR>", desc = "Undotree toggle" },
         },
+    },
+
+    {
+        "ojroques/nvim-bufdel",
+        event = { "BufReadPost", "BufNewFile" },
+        opts = {},
     },
 }

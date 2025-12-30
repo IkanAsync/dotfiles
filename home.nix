@@ -7,34 +7,28 @@
   home.enableNixpkgsReleaseCheck = false;
   home.stateVersion = "25.05"; # Please read the comment before changing.
   news.display = "silent";
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
 
   home.packages = with pkgs; [
     neovim
     vlc
     eza
-    # helix
     zoxide
     go
     nodejs_24
     strawberry
     stow
-    kanata
     tmux
-    #fish
     nixd # lsp nix
     nixfmt # nix formatter
     lolcat
     gh
-
+    kooha
+    zig
   ];
 
   home.file = { };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   home.sessionPath = [ ];
 

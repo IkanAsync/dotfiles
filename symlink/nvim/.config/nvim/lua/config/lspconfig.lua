@@ -7,7 +7,9 @@ M.on_attach = function(_, bufnr)
     end
 
     map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
-    map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
+    map("n", "gd", ":Telescope lsp_definitions<CR>", opts "Go to definition")
+    map("n", "gi", ":Telescope lsp_implementations<CR>", opts "Go to implementation")
+    map("n", "grr", ":Telescope lsp_references<CR>", opts "Go to _references")
 
     map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Go to type definition")
     map("n", "<leader>cr", vim.lsp.buf.rename, opts "Rename")
@@ -97,7 +99,15 @@ M.defaults = function()
     vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
     vim.lsp.enable "lua_ls"
 
-    local servers = { "gopls", "basedpyright", "html", "cssls", "emmet_ls" }
+    local servers = {
+        "gopls",
+        "basedpyright",
+        "html",
+        "cssls",
+        "emmet_language_server",
+        "zls",
+        "clangd",
+    }
 
     -- config lsp
 
@@ -120,7 +130,7 @@ M.defaults = function()
     })
 
     -- emmet
-    vim.lsp.config("emmet_ls", {
+    vim.lsp.config("emmet_language_server", {
         filetypes = {
             "css",
             "eruby",
@@ -130,18 +140,33 @@ M.defaults = function()
             "less",
             "sass",
             "scss",
-            "svelte",
             "pug",
             "typescriptreact",
-            "vue",
-            "htmldjango",
         },
         init_options = {
-            html = {
-                options = {
-                    ["bem.enabled"] = true,
+            ---@type table<string, string>
+            includeLanguages = {},
+            --- @type string[]
+            excludeLanguages = {},
+            --- @type string[]
+            extensionsPath = {},
+            --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+            preferences = {},
+            --- @type boolean Defaults to `true`
+            showAbbreviationSuggestions = true,
+            --- @type "always" | "never" Defaults to `"always"`
+            showExpandedAbbreviation = "always",
+            provideCloseTag = false,
+            --- @type boolean Defaults to `false`
+            showSuggestionsAsSnippets = false,
+            --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+            syntaxProfiles = {
+                html = {
+                    inline_break = 1,
                 },
             },
+            --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+            variables = {},
         },
     })
 

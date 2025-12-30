@@ -9,7 +9,8 @@ conform.setup {
         python = { "black" },
         vue = { "prettier" },
         htmldjango = { "djlint" },
-        nix = { "nixfmt" },
+        -- nix = { "nixfmt" },
+        c = { "clang-format" },
         zig = { "zls" },
     },
 

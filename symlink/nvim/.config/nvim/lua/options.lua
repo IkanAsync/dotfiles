@@ -68,3 +68,4 @@ local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
 
 vim.api.nvim_set_hl(0, "@lsp.diagnostic.unused", { link = "Comment" })
+vim.api.nvim_set_hl(0, "SnippetTabstop", { link = "NONE" })

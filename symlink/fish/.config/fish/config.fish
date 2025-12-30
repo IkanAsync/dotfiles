@@ -1,10 +1,7 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 
-# Jika sedang tidak di dalam tmux, otomatis start tmux
 if status --is-interactive
-    # Cek apakah tmux sudah berjalan
     if not set -q TMUX
-        # Cek apakah session default ada, jika tidak buat
         tmux attach -t default 2>/dev/null || tmux new -s default
     end
 end
@@ -27,10 +24,13 @@ alias nv=nvim
 alias hms="home-manager switch --flake ~/dotfiles"
 alias hm="home-manager"
 alias ga="git add"
+alias hx="helix"
 
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.nix-profile/bin
 fish_add_path /home/ikanasync/.nix-profile/etc/profile.d/hm-session-vars.sh
+fish_add_path /home/ikanasync/.npm-global/bin
+fish_add_path /home/ikanasync/.local/share/nvim/mason/bin
 set -gx PATH ~/.local/bin $PATH
 set -x GOPATH $HOME/go
 
