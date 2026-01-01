@@ -9,7 +9,7 @@
   news.display = "silent";
 
   home.packages = with pkgs; [
-    neovim
+    # neovim
     vlc
     eza
     zoxide
@@ -28,7 +28,9 @@
 
   home.file = { };
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   home.sessionPath = [ ];
 

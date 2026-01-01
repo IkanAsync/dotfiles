@@ -1,4 +1,6 @@
-source /usr/share/cachyos-fish-config/cachyos-config.fish
+#source /usr/share/cachyos-fish-config/cachyos-config.fish
+
+# set -gx TERM xterm-256color
 
 if status --is-interactive
     if not set -q TMUX
@@ -24,7 +26,7 @@ alias nv=nvim
 alias hms="home-manager switch --flake ~/dotfiles"
 alias hm="home-manager"
 alias ga="git add"
-alias hx="helix"
+#alias hx="helix"
 
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.nix-profile/bin
